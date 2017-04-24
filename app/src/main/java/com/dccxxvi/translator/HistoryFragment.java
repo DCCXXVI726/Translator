@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.database.Cursor;
 import android.widget.CursorAdapter;
-import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
@@ -33,21 +32,20 @@ public class HistoryFragment extends ListFragment {
             db = translatorDatabase.getReadableDatabase();
 
             cursor = db.query("HISTORY",
-                    new String[]{"_id", "WORD"},
+                    new String[]{"_id", "WORD", "TRANSLATED", "LANG", "FAVORITE"},
                     null,null,null,null,null);
-            CursorAdapter listAdapter = new SimpleCursorAdapter(mainActivity,
-                    android.R.layout.simple_list_item_1,
+            CursorAdapter listAdapter = new MyCursorAdapter(mainActivity,
+                    R.layout.history_item,
                     cursor,
-                    new String[]{"WORD"},
-                    new int[]{android.R.id.text1},
-                    0);
+                    new String[]{"WORD", "TRANSLATED", "LANG", "FAVORITE"},
+                    new int[]{R.id.history_before_translate,R.id.history_after_translate,R.id.history_lang,R.id.fav},
+                    0,db);
             setListAdapter(listAdapter);
         }catch (SQLiteException e) {
             Toast toast = Toast.makeText(mainActivity, "Database unavailable", Toast.LENGTH_SHORT);
             toast.show();
         }
     }
-    //TODO: Сделать чтобы не было повторений,заняться интерфейсом красивым
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

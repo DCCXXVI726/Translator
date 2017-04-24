@@ -1,54 +1,88 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.dccxxvi.translator.TranslationFragment"
-    android:columnCount="3">
-    <Spinner
-        android:id="@+id/before_translation"
-        android:layout_width="wrap_content"
+    android:background="#DCDCDC">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/spinner_language"
-        android:layout_row="0"
-        android:layout_column="0"/>
-    <Button
-        android:id="@+id/swap"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/swap"
-        android:layout_row="0"
-        android:layout_column="1"/>
-    <Spinner
-        android:id="@+id/after_translation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:entries="@array/spinner_language"
-        android:layout_row="0"
-        android:layout_column="2"/>
+        android:orientation="horizontal"
+        android:background="#FFFFFF">
+
+        <Spinner
+            android:layout_gravity="center"
+            android:id="@+id/before_translation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:entries="@array/spinner_language" />
+
+        <ImageButton
+            android:id="@+id/swap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_swap_horiz_black_18dp" />
+
+        <Spinner
+            android:layout_gravity="center"
+            android:id="@+id/after_translation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:entries="@array/spinner_language" />
+    </LinearLayout>
+
     <EditText
+        android:background="#FFFFFF"
         android:id="@+id/text_before_translation"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:hint="@string/enter_text"
-        android:layout_row="1"
-        android:layout_column="0"
-        android:layout_columnSpan="3"/>
-    <Button
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:gravity="top"
+        android:hint="@string/enter_text" />
+
+    <Space
         android:id="@+id/button_translate"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/translate"
-        android:layout_row="2"
-        android:layout_column="0"
-        android:layout_columnSpan="3" />
-    <TextView
-        android:id="@+id/text_after_translation"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/translate" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_row="3"
-        android:layout_column="0"
-        android:layout_columnSpan="3"/>
-    <!-- TODO!,настроить остальные кнопки-->
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:orientation="horizontal">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:background="#0000CD">
+
+            <TextView
+                android:id="@+id/text_after_translation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textIsSelectable="true"
+                android:textSize="20sp" />
+        </ScrollView>
+        <ImageButton
+            android:background="#FFFFFF"
+            android:id="@+id/make_fav"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_grade_black_24dp"/>
+    </LinearLayout>
 
 
-    </GridLayout>
+    <!-- TODO!,шрифты,прочитать про закругление,поменять картинки,вместо закругления android:paddingBottom-->
+
+
+</LinearLayout>

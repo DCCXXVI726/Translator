@@ -14,7 +14,7 @@ import java.net.UnknownHostException;
 public class YandexTranslation {
     public static String translate(String lang, String input) {
         try {
-            String url = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20170317T101301Z.7d82235f8892b675.e3ca99fc554300b9ae453281293835f60b0a78c8";
+            String url = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20170417T203307Z.b31d06517ea29771.ca435936bff4c46d07ced8023d7c468c5aa5ea80";
             System.out.println(input);
             URL urlObj = new URL(url);
             System.out.println(lang);
@@ -32,6 +32,6 @@ public class YandexTranslation {
         } catch (Exception e) {
             e.printStackTrace();
             return "e";
-        }//todo: Поменять код на свой а не санька, разобраться с базами,и стандартными листа для базы данных
+        }
     }
 }

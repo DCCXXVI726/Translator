@@ -13,6 +13,22 @@ public class Languages  {
                 break;
             case "Английский":
                 shorten = "en";
+                break;
+            case "Белорусский":
+                shorten = "be";
+                break;
+            case "Иврит":
+                shorten = "he";
+                break;
+            case "Китайский":
+                shorten = "zh";
+                break;
+            case "Литовский":
+                shorten = "lt";
+                break;
+            case "Урду":
+                shorten = "ur";
+                break;
         }
         return shorten;
     }
